@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\SubscribeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,11 @@ Route::prefix('v1')->group(function () {
         Route::post('', [WebsiteController::class, 'create']);
         Route::get('', [WebsiteController::class, 'all']);
         Route::get('/{id}', [WebsiteController::class, 'findById']);
+    });
+
+    Route::prefix('subscribe')->group(function () {
+        Route::post('', [SubscribeController::class, 'create']);
+        Route::get('', [SubscribeController::class, 'all']);
+
     });
 });

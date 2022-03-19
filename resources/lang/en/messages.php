@@ -6,9 +6,14 @@ return [
     'user_created' => 'User Created Successfully',
 	'users_fetched_successfully' => 'Users Fetched Successfully',
 	'user_fetched_successfully' => 'User Fetched Successfully',
+
     'website_created' => 'Website Created Successfully',
 	'websites_fetched_successfully' => 'Websites Fetched Successfully',
-	'website_fetched_successfully' => 'Website Fetched Successfully'
+	'website_fetched_successfully' => 'Website Fetched Successfully',
+
+    "subscriber_exists" => 'Subscribers Exists',
+    "subscription_created" => 'Subscription Created',
+    "subscribers_fetched_successfully" => "Subscription Fetched Successfully"
 ];
 
 ?>

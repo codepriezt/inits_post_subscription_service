@@ -2,10 +2,13 @@
 
 namespace App\Http\Resources;
 
-use App\Http\Resources\SubscriberResource;
+
+use App\Http\Resources\UserResource;
+use App\Http\Resources\WebsiteResource;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class SubscriberResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,10 +20,10 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'firstName' =>  ucwords($this->first_name),
-            'lastName' => ucwords($this->last_name),
-            'email' => $this->email,
-            'subscription' => $this->subscription
+            'user' => $this->user->full_name,
+            'user_id'=>$this->user->id,
+            'website' => $this->website->name,
+            'website_id'=> $this->website->id
         ];
     }
 }

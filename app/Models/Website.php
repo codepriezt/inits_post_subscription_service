@@ -18,4 +18,9 @@ class Website extends Model
     protected $fillable = [
         'name', 
     ];
+
+    public function subscription()
+    {
+        return $this->hasMany(Subscription::class);
+    }
 }

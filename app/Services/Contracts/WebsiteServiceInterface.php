@@ -8,7 +8,7 @@ interface WebsiteServiceInterface
 {
 
 	/**
-	 * create user information
+	 * create website information
 	 * 
 	 * @param array data
 	 * 
@@ -16,13 +16,13 @@ interface WebsiteServiceInterface
 	public function create(array $data): ?Website;
 
 	/**
-	 * get all users
+	 * get website users
 	 * 
 	 */
 	public function all();
 
 	/**
-	 * get user by Id
+	 * get website by Id
 	 *  @param int id
 	 * 
 	 */

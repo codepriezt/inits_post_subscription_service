@@ -42,7 +42,7 @@ class WebsiteController extends Controller
 		try {
 			$websites = $this->websiteService->all();
 			$data = [
-				"Websites" =>  WebsiteResource::collection($websites)
+				"websites" =>  WebsiteResource::collection($websites)
 			];
 			return $this->sendApiResponse(Response::HTTP_OK, __('messages.websites_fetched_successfully'), $data);
 		} catch (\Exception $e) {
