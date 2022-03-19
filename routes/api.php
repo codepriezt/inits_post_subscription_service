@@ -1,7 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::prefix('v1')->group(function () {
+
+    Route::prefix('users')->group(function () {
+        Route::post('', [UserController::class, 'create']);
+        Route::get('', [UserController::class, 'all']);
+        Route::get('/{id}', [UserController::class, 'findById']);
+    });
+
+
+    Route::prefix('websites')->group(function () {
+        Route::post('', [WebsiteController::class, 'create']);
+        Route::get('', [WebsiteController::class, 'all']);
+        Route::get('/{id}', [WebsiteController::class, 'findById']);
+    });
+
+    Route::prefix('subscribe')->group(function () {
+        Route::post('', [SubscribeController::class, 'create']);
+        Route::get('', [SubscribeController::class, 'all']);
+
+    });
+
+    Route::prefix('posts')->group(function () {
+        Route::post('', [PostController::class, 'create']);
+        Route::get('', [PostController::class, 'all']);
+
+    });
 });
