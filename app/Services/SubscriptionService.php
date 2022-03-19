@@ -29,7 +29,7 @@ class SubscriptionService implements SubscriptionServiceInterface
 	{
 		try {
 			return Subscription::paginate(10);
-	} catch (\Exception $e) {
+		} catch (\Exception $e) {
 			Log::error("Error fetching all subscription. Error message: {$e->getMessage()}", $e->getTrace());
 			return $e;
 		}
@@ -38,7 +38,11 @@ class SubscriptionService implements SubscriptionServiceInterface
 
 	public function checkIfExists($data)
 	{
-		return Subscription::where(['user_id' => $data['user_id'] , 'website_id' => $data['website_id']])->first();
+		return Subscription::where(['user_id' => $data['user_id'], 'website_id' => $data['website_id']])->first();
 	}
 
+	public function fetchSubscribers($websiteId)
+	{
+		return Subscription::where(['website_id' => $websiteId])->get();
+	}
 }

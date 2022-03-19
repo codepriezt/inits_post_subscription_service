@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,12 @@ Route::prefix('v1')->group(function () {
     Route::prefix('subscribe')->group(function () {
         Route::post('', [SubscribeController::class, 'create']);
         Route::get('', [SubscribeController::class, 'all']);
+
+    });
+
+    Route::prefix('posts')->group(function () {
+        Route::post('', [PostController::class, 'create']);
+        Route::get('', [PostController::class, 'all']);
 
     });
 });

@@ -16,5 +16,6 @@ interface SubscriptionServiceInterface
 	public function all();
 	public function create(array $data);
 	public function checkIfExists(array $data);
+	public function fetchSubscribers(int $websiteId);
 
 }

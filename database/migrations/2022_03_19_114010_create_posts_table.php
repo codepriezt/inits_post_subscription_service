@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->unsignedBigInteger('website_id');
+            $table->enum('status' , ['published' , 'not_published'])->default('not_published');
             $table->timestamps();
 
             $table->index(['website_id']);

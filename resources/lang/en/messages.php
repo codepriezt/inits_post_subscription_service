@@ -13,7 +13,10 @@ return [
 
     "subscriber_exists" => 'Subscribers Exists',
     "subscription_created" => 'Subscription Created',
-    "subscribers_fetched_successfully" => "Subscription Fetched Successfully"
+    "subscribers_fetched_successfully" => "Subscription Fetched Successfully",
+
+    "posts_created" => 'Post Created',
+    "posts_fetched_successfully" => "Post Fetched Successfully"
 ];
 
 ?>

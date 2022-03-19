@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
-	protected $repositories = ['User' , 'Website' , 'Subscription'];
+	protected $repositories = ['User' , 'Website' , 'Subscription' , 'Post'];
 
 	 /**
      * Register any application services.
