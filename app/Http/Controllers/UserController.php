@@ -57,6 +57,10 @@ class UserController extends Controller
 
 		try {
 			$user = $this->userService->findById($userId);
+
+			if(!$user){
+				return $this->sendApiResponse(Response::HTTP_NOT_FOUND, __('messages.user_not_found'));
+			}
 			return $this->sendApiResponse(Response::HTTP_OK, __('messages.user_fetched_successfully'), new UserResource($user));
 		} catch (\Exception $e) {
 			$this->Exception($e);

@@ -6,8 +6,10 @@ return [
     'user_created' => 'User Created Successfully',
 	'users_fetched_successfully' => 'Users Fetched Successfully',
 	'user_fetched_successfully' => 'User Fetched Successfully',
+    'user_not_found' => 'Invalid User Id',
 
     'website_created' => 'Website Created Successfully',
+    'website_not_found' => 'Invalid Website Id',
 	'websites_fetched_successfully' => 'Websites Fetched Successfully',
 	'website_fetched_successfully' => 'Website Fetched Successfully',
 
