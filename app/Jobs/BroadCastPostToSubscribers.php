@@ -27,7 +27,8 @@ class BroadCastPostToSubscribers implements ShouldQueue
      */
 
     protected $post;
-    protected $subscriptionService;
+    protected $subscriptionService, $userService, $postService;
+
 
     public function __construct(Post $post)
     {
@@ -45,7 +46,6 @@ class BroadCastPostToSubscribers implements ShouldQueue
         try {
 
 
-
             $this->subscriptionService =  $subscriptionService;
             $this->userService = $userService;
             $this->postService = $postService;
@@ -56,7 +56,7 @@ class BroadCastPostToSubscribers implements ShouldQueue
 
 
 
-            //loop through the users and broadcast the meassage to that mail
+            //loop through the subscribers and broadcast the message to users email
             foreach ($susbcribers as  $subscriber) {
                 if (!is_null($subscriber)) {
                     $user = $this->userService->findById($subscriber->user_id);
@@ -65,7 +65,7 @@ class BroadCastPostToSubscribers implements ShouldQueue
                     Mail::to($user->email)->send(new PostCreated($this->post, $user));
 
                     // update post status
-                    $this->PostService->update($this->post->id, ["status" => "published"]);
+                    $this->postService->update($this->post->id, ["status" => "published"]);
                 }
             }
         } catch (\Exception $e) {
