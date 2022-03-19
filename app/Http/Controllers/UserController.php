@@ -44,7 +44,7 @@ class UserController extends Controller
 			$data = [
 				"users" =>  UserResource::collection($users)
 			];
-			return $this->sendApiResponse(Response::HTTP_CREATED, __('message.users_fetched_successfully'), $data);
+			return $this->sendApiResponse(Response::HTTP_OK, __('message.users_fetched_successfully'), $data);
 		} catch (\Exception $e) {
 			$this->Exception($e);
 			return $this->error(Response::HTTP_INTERNAL_SERVER_ERROR, __('messages.error_occurred'));
@@ -57,7 +57,7 @@ class UserController extends Controller
 
 		try {
 			$users = $this->userService->findById($userId);
-			return $this->sendApiResponse(Response::HTTP_CREATED, __('message.user_fetched_successfully'), new UserResource($users));
+			return $this->sendApiResponse(Response::HTTP_OK, __('message.user_fetched_successfully'), new UserResource($users));
 		} catch (\Exception $e) {
 			$this->Exception($e);
 			return $this->error(Response::HTTP_INTERNAL_SERVER_ERROR, __('messages.error_occurred'));
