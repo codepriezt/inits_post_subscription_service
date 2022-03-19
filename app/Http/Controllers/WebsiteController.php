@@ -61,7 +61,7 @@ class WebsiteController extends Controller
 			if(!$website){
 				return $this->sendApiResponse(Response::HTTP_NOT_FOUND, __('messages.website_not_found'));
 			}
-			
+
 			return $this->sendApiResponse(Response::HTTP_OK, __('messages.website_fetched_successfully'), new WebsiteResource($website));
 		} catch (\Exception $e) {
 			$this->Exception($e);
