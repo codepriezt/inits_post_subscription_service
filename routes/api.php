@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,12 @@ Route::prefix('v1')->group(function () {
         Route::post('', [UserController::class, 'create']);
         Route::get('', [UserController::class, 'all']);
         Route::get('/{id}', [UserController::class, 'findById']);
+    });
+
+
+    Route::prefix('websites')->group(function () {
+        Route::post('', [WebsiteController::class, 'create']);
+        Route::get('', [WebsiteController::class, 'all']);
+        Route::get('/{id}', [WebsiteController::class, 'findById']);
     });
 });
